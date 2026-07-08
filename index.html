@@ -343,7 +343,7 @@ async function callClaude() {
       })
     });
     const data = await response.json();
-    let fullText = data.content?.[0]?.text || "Извините, произошла ошибка.";
+    let fullText = data.content?.[0]?.text || ("Ошибка API: " + (data.error?.message || JSON.stringify(data).slice(0, 300)));
 
     // Extract scores
     const scoresMatch = fullText.match(/SCORES:\{([^}]+)\}/);
