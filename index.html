@@ -179,7 +179,7 @@
       <div class="logo-text">ВЛАДИС</div>
     </div>
     <div class="divider-v"></div>
-    <div class="agent-title">HR-агент по подбору персонала · v4</div>
+    <div class="agent-title">HR-агент по подбору персонала · v5</div>
   </div>
   <div class="status-pill">
     <div class="status-dot"></div>
@@ -515,6 +515,27 @@ function submitContactForm() {
   // Show success
   document.getElementById('cfForm').style.display = 'none';
   document.getElementById('cfSuccess').style.display = 'block';
+
+  // Send report to Telegram
+  try {
+    const totalEl = document.getElementById('totalScore').textContent;
+    const verdictEl = document.getElementById('verdictBlock').textContent;
+    const posEl = POSITIONS[document.getElementById('positionSelect').value]?.title || '';
+    fetch("https://web-production-944a1.up.railway.app/report", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({
+        name: candidateContacts.name,
+        phone: candidateContacts.phone,
+        social: candidateContacts.social,
+        callTime: candidateContacts.callTime,
+        position: posEl,
+        total: totalEl,
+        s1: scores.s1, s2: scores.s2, s3: scores.s3, s4: scores.s4, s5: scores.s5,
+        verdict: verdictEl
+      })
+    });
+  } catch(e) {}
 
   // Show report button prominently
   document.getElementById('reportBtn').classList.add('show');
