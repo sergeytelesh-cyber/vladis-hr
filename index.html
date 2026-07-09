@@ -168,6 +168,36 @@
   .candidate-card { background: var(--off-white); border-radius: 10px; padding: 14px; margin-bottom: 6px; border: 1px solid var(--border); }
   .candidate-card-name { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
   .candidate-card-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #555; margin-bottom: 3px; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .header { padding: 0 14px; height: 56px; }
+    .logo-icon { width: 32px; height: 32px; font-size: 15px; }
+    .logo-text { font-size: 16px; letter-spacing: 1px; }
+    .agent-title { display: none; }
+    .divider-v { display: none; }
+    .status-pill { font-size: 11px; padding: 3px 10px; }
+    .stages-bar { padding: 8px 14px; }
+    .chat-messages { padding: 14px 12px; gap: 12px; }
+    .msg-bubble { max-width: 85%; font-size: 15px; padding: 11px 14px; }
+    .msg-avatar { width: 28px; height: 28px; }
+    .chat-input-area { padding: 10px 12px 12px; }
+    .chat-input { font-size: 16px; }
+    .quick-btns { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+    .quick-btns::-webkit-scrollbar { display: none; }
+    .quick-btn { flex-shrink: 0; font-size: 13px; padding: 7px 14px; }
+    .send-btn { width: 48px; height: 48px; }
+    .contact-form-bubble { max-width: 100%; padding: 16px; }
+    .cf-row { flex-direction: column; gap: 0; }
+    .cf-input { font-size: 16px; }
+    .report-btn { right: 12px; bottom: 130px; }
+    .empty-state { padding: 24px 16px; }
+    .empty-title { font-size: 18px; }
+    .modal { width: 100%; max-width: 100vw; max-height: 92vh; border-radius: 16px 16px 0 0; align-self: flex-end; }
+    .modal-overlay.open { align-items: flex-end; }
+  }
+
 </style>
 </head>
 <body>
@@ -179,7 +209,7 @@
       <div class="logo-text">ВЛАДИС</div>
     </div>
     <div class="divider-v"></div>
-    <div class="agent-title">HR-агент по подбору персонала · v5</div>
+    <div class="agent-title">HR-агент по подбору персонала · v6</div>
   </div>
   <div class="status-pill">
     <div class="status-dot"></div>
